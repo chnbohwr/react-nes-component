@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colorblack, colorwhite } from './config';
-import { cpus } from 'os';
 
 const borderSize = 4;
 
