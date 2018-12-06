@@ -1,24 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import { render } from 'react-dom';
+import { hot } from 'react-hot-loader';
+import Button from './components/Button';
+import FontFace from './components/FontFace';
 
-const render = () => {
-  const Main = require('containers').default;
+const Demo = () => (
+  <div>
+    <FontFace />
+    <Button>Normal</Button>
+    <Button type="primary">Primary</Button>
+    <Button type="success">Success</Button>
+    <Button type="warning">Warning</Button>
+    <Button type="error">Error</Button>
+  </div>
+);
 
-  ReactDOM.render(
-    <AppContainer>
-      <Main />
-    </AppContainer>,
-    document.getElementById('app')
-  );
-};
+const Main = hot(module)(Demo);
 
-render();
-
-// migrate by this guide
-// https://github.com/gaearon/react-hot-loader/tree/master/docs#migration-to-30
-if (module.hot) {
-  module.hot.accept('containers/', () => {
-    render();
-  });
-}
+render(<Main />, document.getElementById('app'));
