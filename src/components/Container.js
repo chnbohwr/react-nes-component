@@ -6,7 +6,8 @@ import { colorblack, colorwhite } from './config';
 const StyleContainer = styled.div`
 position: relative;
   padding: 1.5rem 2rem;
-  color: ${p => (p.isDark ? colorwhite : colorblack)}
+  color: ${p => (p.isDark ? colorwhite : colorblack)};
+  padding-top: ${p => (p.hasTitle ? '2rem' : null)};
 
   > :last-child {
     margin-bottom: 0;

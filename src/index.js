@@ -14,7 +14,9 @@ const Demo = () => (
     <Button type="warning">Warning</Button>
     <Button type="error">Error</Button>
     <Container>hi this is container</Container>
-    <Container title="hello world" isDark>hi this is dark container</Container>
+    <Container title="hello world" isDark>
+      <div>hi this is dark container</div>
+    </Container>
   </div>
 );
 
