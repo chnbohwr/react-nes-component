@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { hot } from 'react-hot-loader';
 import Button from './components/Button';
 import FontFace from './components/FontFace';
+import Container from './components/Container';
 
 const Demo = () => (
   <div>
@@ -12,6 +13,19 @@ const Demo = () => (
     <Button type="success">Success</Button>
     <Button type="warning">Warning</Button>
     <Button type="error">Error</Button>
+    <Container>hi this is container</Container>
+    <Container title="hello world" isDark>
+      <div>hi this is dark container</div>
+    </Container>
+
+    <Container title="hello world" isDark isRounded>
+      <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
+    </Container>
+
+    <Container isRounded title="spider man">
+      <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
+    </Container>
+
   </div>
 );
 
