@@ -2,11 +2,12 @@
   "name": "react-nes-component",
   "description": "react component for NES.css",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "bin/index.js",
   "scripts": {
     "clean": "rimraf dist/*",
     "start": "webpack-dev-server --mode development --hot --config webpack.config.js",
     "dist": "npm run clean && webpack --mode production --config webpack.config.js",
+    "build-component": "babel src/components/ --out-dir bin/",
     "deploy": "npm run dist && gh-pages -d dist",
     "build:docker": "npm run dist && docker build -t reactdocker .",
     "lint": "eslint ./src",
@@ -22,10 +23,8 @@
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
     "@babel/core": "7.2.0",
-    "@babel/plugin-proposal-class-properties": "7.2.1",
-    "@babel/plugin-proposal-decorators": "7.2.0",
-    "@babel/plugin-proposal-do-expressions": "7.2.0",
     "@babel/plugin-proposal-export-default-from": "7.2.0",
     "@babel/plugin-proposal-export-namespace-from": "7.2.0",
     "@babel/plugin-proposal-function-bind": "7.2.0",
