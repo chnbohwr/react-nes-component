@@ -43,7 +43,7 @@ const generateBackground = type => (colorMap[type] ? colorMap[type].background :
 const generateHoverBackground = type => (colorMap[type] ? colorMap[type].hoverBackground : colorMap.normal.hoverBackground);
 const generateShadow = type => (colorMap[type] ? colorMap[type].shadow : colorMap.normal.shadow);
 
-const Button = styled.button`
+const StyleButton = styled.button`
   position: relative;
   display: inline-block;
   padding: 10px 12px;
@@ -99,6 +99,10 @@ const Button = styled.button`
 
   font-family: "Press Start 2P";
 `;
+
+const Button = ({type, children, ...props}) => (
+  <StyleButton type={type} {...props}>{children}</StyleButton>
+);
 
 Button.propTypes = {
   type: PropTypes.oneOf(['normal', 'primary', 'success', 'warning', 'error']),

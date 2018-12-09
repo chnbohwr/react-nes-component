@@ -11,7 +11,9 @@
     "deploy": "npm run dist && gh-pages -d dist",
     "build:docker": "npm run dist && docker build -t reactdocker .",
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix"
+    "lint:fix": "eslint ./src --fix",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +49,7 @@
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.4",
     "css-loader": "1.0.1",
+    "docz": "^0.12.15",
     "eslint": "5.9.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-plugin-import": "2.14.0",
