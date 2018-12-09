@@ -10,6 +10,8 @@
   },
   "extends": "airbnb",
   "rules": {
+    "no-nested-ternary": 0,
+    "object-curly-newline": 0,
     "linebreak-style": 0,
     "no-debugger": 0,
     "no-alert": 0,

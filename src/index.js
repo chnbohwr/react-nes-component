@@ -22,7 +22,7 @@ const Demo = () => (
       <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
     </Container>
 
-    <Container isRounded title="spider man">
+    <Container isRounded title="spider man" style={{width: 300}}>
       <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
     </Container>
 

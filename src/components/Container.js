@@ -6,7 +6,6 @@ import { colorblack, colorwhite } from './config';
 const rounded = ($base, $background) => `
 border: none;
 border-radius: 0;
-// prettier-ignore
 box-shadow:
   0 -4px ${$background},
   0 -8px ${$base},
@@ -68,16 +67,12 @@ const StyleTitle = styled.p`
   padding: 0 0.5rem;
   margin: ${p => (p.isRounded ? -2.2 : -2)}rem 0 1rem;
   font-size: 1rem;
-  color: ${p => (p.isDark ? colorwhite : colorblack)}
-  background-color: ${p => (p.isDark ? colorblack : colorwhite)}
+  color: ${p => (p.isDark ? colorwhite : colorblack)};
+  background-color: ${p => (p.isDark ? colorblack : colorwhite)};
 `;
 
-const Container = ({
-  title, isDark,
-  isRounded,
-  children,
-}) => (
-  <StyleContainer isDark={isDark} isRounded={isRounded} hasTitle={!!title}>
+const Container = ({ title, isDark, isRounded, children, ...props }) => (
+  <StyleContainer isDark={isDark} isRounded={isRounded} hasTitle={!!title} {...props}>
     {title ? <StyleTitle isRounded={isRounded} isDark={isDark}>{title}</StyleTitle> : null}
     {children}
   </StyleContainer>
