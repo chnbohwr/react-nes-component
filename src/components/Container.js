@@ -3,60 +3,71 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colorblack, colorwhite } from './config';
 
-const rounded = ($base, $background) => `
-border: none;
-border-radius: 0;
-box-shadow:
-  0 -4px ${$background},
-  0 -8px ${$base},
-  4px 0 ${$background},
-  4px -4px ${$base},
-  8px 0 ${$base},
-  0 4px ${$background},
-  0 8px ${$base},
-  -4px 0 ${$background},
-  -4px 4px ${$base},
-  -8px 0 ${$base},
-  -4px -4px ${$base},
-  4px 4px ${$base};
+const generateRoundBorder = (backgroundColor, borderColor) => `
+  box-shadow:
+    0 -4px ${backgroundColor},
+    0 -8px ${borderColor},
+    4px 0 ${backgroundColor},
+    4px -4px ${borderColor},
+    8px 0 ${borderColor},
+    0 4px ${backgroundColor},
+    0 8px ${borderColor},
+    -4px 0 ${backgroundColor},
+    -4px 4px ${borderColor},
+    -8px 0 ${borderColor},
+    -4px -4px ${borderColor},
+    4px 4px ${borderColor},
+    0 0 0 12px ${backgroundColor};
 `;
+
+const generateSolidBorder = (backgroundColor, borderColor) => `
+  box-shadow:
+    0 0 0 4px ${borderColor},
+    0 0 0 8px ${backgroundColor};
+`;
+
+const generateAfterSize = isRounded => `
+  top: ${isRounded ? '12px' : '8px'};
+  right: ${isRounded ? '12px' : '8px'};
+  bottom: ${isRounded ? '12px' : '8px'};
+  left: ${isRounded ? '12px' : '8px'};
+`;
+
+const generateBorder = (isDark, isRounded) => {
+  if (isRounded) {
+    if (isDark) {
+      return generateRoundBorder(colorblack, colorwhite);
+    }
+    return generateRoundBorder(colorwhite, colorblack);
+  }
+  if (isDark) {
+    return generateSolidBorder(colorblack, colorwhite);
+  }
+  return generateSolidBorder(colorwhite, colorblack);
+};
+
+const generateMargin = (isDark, isRounded) => {
+  if (isDark && isRounded) { return 'margin: 12px 12px;'; }
+  if (!isDark && isRounded) { return 'margin: 10px 8px;'; }
+  return '';
+}
 
 const StyleContainer = styled.div`
   position: relative;
-  padding: ${p => (p.isRounded ? '1rem 1.5rem' : '1.5rem 2rem')};
+  padding: ${p => (p.isRounded ? '16px' : '12px')};
   color: ${p => (p.isDark ? colorwhite : colorblack)};
-  padding-top: ${p => (p.hasTitle ? '2rem' : null)};
-  margin: ${p => (p.isRounded ? '14px 8px' : 'none')};
+  background-color: ${p => (p.isDark ? colorblack : colorwhite)};
+
+
+  &:after{
+    position: absolute;
+    ${p => generateAfterSize(p.isRounded)}
+    content: "";
+    ${p => generateBorder(p.isDark, p.isRounded)}
+  }
 
   > :last-child {
     margin-bottom: 0;
-  }
-
-  &::before,
-  &::after {
-    position: absolute;
-    z-index: -1;
-    content: "";
-  }
-
-  &::before {
-    top: ${p => (p.isRounded ? -8 : 0)}px;
-    right: ${p => (p.isRounded ? -8 : 0)}px;
-    bottom: ${p => (p.isRounded ? -8 : 0)}px;
-    left: ${p => (p.isRounded ? -8 : 0)}px;
-    background-color:${p => (p.isDark ? colorblack : colorwhite)};
-  }
-
-  &::after {
-    top: 2px;
-    right: 2px;
-    bottom: 2px;
-    left: 2px;
-    border-color: ${p => (p.isDark ? colorwhite : colorblack)};
-    border-style: solid;
-    border-width: 4px;
-    border-radius: 4px;
-    ${p => (p.isRounded ? (p.isDark ? rounded(colorblack, colorwhite) : rounded(colorwhite, colorblack)) : '')};
   }
 
   font-family: "Press Start 2P";

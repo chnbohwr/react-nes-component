@@ -14,15 +14,15 @@ const Demo = () => (
     <Button type="warning">Warning</Button>
     <Button type="error">Error</Button>
     <Container>hi this is container</Container>
-    <Container title="hello world" isDark>
+    <Container isDark>
       <div>hi this is dark container</div>
     </Container>
 
-    <Container title="hello world" isDark isRounded>
+    <Container isDark isRounded>
       <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
     </Container>
 
-    <Container isRounded title="spider man" style={{width: 300}}>
+    <Container isRounded style={{width: 300}}>
       <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
     </Container>
 
