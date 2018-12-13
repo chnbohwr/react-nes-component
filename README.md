@@ -2,7 +2,7 @@
 
 this is a 8 bit style component
 
-!(screenshoot)[./screenshoot/component.png]
+!(screenshoot)[screenshoot/component.png]
 
 ### Doc
 https://chnbohwr.github.io/react-nes-component/
