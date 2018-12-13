@@ -41,15 +41,15 @@ const Main = () => (
       </Container>
       <br />
       <Container isDark isRounded>
-        <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
+        <div>Good morning. Thou hast had a good nights sleep, I hope.</div>
       </Container>
       <br />
       <div style={{ display: 'flex' }}>
         <Container isRounded style={{ width: 300 }}>
-          <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
+          <div>Good morning. Thou hast had a good nights sleep, I hope.</div>
         </Container>
         <Container isDark isRounded title="Super easy">
-          <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
+          <div>Good morning. Thou hast had a good nights sleep, I hope.</div>
         </Container>
       </div>
 
