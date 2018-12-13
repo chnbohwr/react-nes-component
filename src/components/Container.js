@@ -57,34 +57,44 @@ const StyleContainer = styled.div`
   padding: ${p => (p.isRounded ? '16px' : '12px')};
   color: ${p => (p.isDark ? colorwhite : colorblack)};
   background-color: ${p => (p.isDark ? colorblack : colorwhite)};
+  font-family: "Press Start 2P";
+  font-size: 14px;
 
-
-  &:after{
+  &:before{
     position: absolute;
     ${p => generateAfterSize(p.isRounded)}
     content: "";
     ${p => generateBorder(p.isDark, p.isRounded)}
   }
-
-  > :last-child {
-    margin-bottom: 0;
-  }
-
-  font-family: "Press Start 2P";
 `;
 
 const StyleTitle = styled.p`
-  display: table;
-  padding: 0 0.5rem;
-  margin: ${p => (p.isRounded ? -2.2 : -2)}rem 0 1rem;
-  font-size: 1rem;
+  position: absolute
+  padding: 0 10px;
+  margin: 0;
+  left: 20px;
+  top: 0px;
+  font-size: 16px;
   color: ${p => (p.isDark ? colorwhite : colorblack)};
   background-color: ${p => (p.isDark ? colorblack : colorwhite)};
+  z-index: 2;
+`;
+
+const TitleMargin = styled.div`
+  margin-bottom: 16px;
 `;
 
 const Container = ({ title, isDark, isRounded, children, ...props }) => (
   <StyleContainer isDark={isDark} isRounded={isRounded} hasTitle={!!title} {...props}>
-    {title ? <StyleTitle isRounded={isRounded} isDark={isDark}>{title}</StyleTitle> : null}
+    {
+      title
+        ? (
+          <React.Fragment>
+            <StyleTitle isRounded={isRounded} isDark={isDark}>{title}</StyleTitle>
+            <TitleMargin />
+          </React.Fragment>
+        ) : null
+    }
     {children}
   </StyleContainer>
 );
