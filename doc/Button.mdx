@@ -2,21 +2,23 @@
 name: Button
 ---
 
-import Button from './Button';
-import FontFace from './FontFace';
+import Button from '../src/components/Button';
+import FontFace from '../src/components/FontFace';
 import { Playground, PropsTable  } from 'docz';
 
-# Basic useage
+# Button
+
+### Basic useage
 
 <Playground>
   <FontFace />
   <Button>Normal</Button>
-  <Button type="primary">Primary</Button>
+  <Button type="primary" onClick={()=>alert('click btn')}>Primary</Button>
   <Button type="success">Success</Button>
   <Button type="warning">Warning</Button>
   <Button type="error">Error</Button>
 </Playground>
 
-# proptypes
+### proptypes
 
 <PropsTable of={Button} />

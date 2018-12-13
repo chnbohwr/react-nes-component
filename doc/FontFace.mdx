@@ -1,0 +1,16 @@
+---
+name: FontFace
+---
+
+# FontFace
+
+import FontFace from '../src/components/FontFace';
+import { Playground, PropsTable  } from 'docz';
+
+dynamic load "Press Start 2P" font source from google
+
+<Playground>
+  <FontFace />
+  <div>this is normal font</div>
+  <div style={{fontFamily: '"Press Start 2P"'}}>this is 8 bit style font</div>
+</Playground>
