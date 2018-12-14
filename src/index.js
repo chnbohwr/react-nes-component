@@ -1,9 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { hot } from 'react-hot-loader';
-import Button from './components/Button';
-import FontFace from './components/FontFace';
-import Container from './components/Container';
+import { FontFace, Button, Container } from './components';
 
 const Demo = () => (
   <div>
