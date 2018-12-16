@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { hot } from 'react-hot-loader';
-import { FontFace, Button, Container } from './components';
+import { FontFace, Button, Container, Input } from './components';
 
 const Demo = () => (
   <div>
@@ -33,7 +33,7 @@ const Demo = () => (
           <div>Good morning. Thou hast had a good night's sleep, I hope.</div>
         </Container>
       </div>
-
+      <Input />
 
     </Container>
   </div>

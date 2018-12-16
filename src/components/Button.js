@@ -1,42 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colorblack, colorwhite } from './config';
+import { colorblack, colorwhite, colorMap } from './config';
 
 const borderSize = 4;
-
-const colorMap = {
-  normal: {
-    color: colorblack,
-    background: '#fff',
-    hoverBackground: '#e7e7e7',
-    shadow: '#adafbc'
-  },
-  primary: {
-    color: colorwhite,
-    background: '#209cee',
-    hoverBackground: '#108de0',
-    shadow: '#006bb3'
-  },
-  success: {
-    color: colorwhite,
-    background: '#92cc41',
-    hoverBackground: '#76c442',
-    shadow: '#4aa52e'
-  },
-  warning: {
-    color: colorblack,
-    background: '#f7d51d',
-    hoverBackground: '#f2c409',
-    shadow: '#e59400'
-  },
-  error: {
-    color: colorwhite,
-    background: '#e76e55',
-    hoverBackground: '#ce372b',
-    shadow: '#8c2022'
-  },
-};
 
 const generateColor = type => (colorMap[type] ? colorMap[type].color : colorMap.normal.color);
 const generateBackground = type => (colorMap[type] ? colorMap[type].background : colorMap.normal.background);
